@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FleetFlow | Modular Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .active-nav { 
+            background-color: rgb(37, 99, 235);
+            color: white;
+            box-shadow: 0 20px 25px -5px rgba(30, 58, 138, 0.2);
+        }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 overflow-hidden">
+
+    <div class="flex h-screen w-full">
+        <aside class="w-72 bg-slate-900 text-slate-300 flex flex-col border-r border-slate-800">
+            <div class="p-8 flex items-center space-x-3">
+                <div class="bg-blue-600 p-2 rounded-lg"><i class="fas fa-truck-fast text-white"></i></div>
+                <h1 class="text-xl font-bold text-white tracking-tight">FleetFlow</h1>
+            </div>
+            
+            <nav class="flex-1 px-4 space-y-2">
+                <button onclick="showPage('dashboard')" class="nav-link w-full flex items-center p-3 rounded-xl transition active-nav">
+                    <i class="fas fa-grid-2 mr-3"></i> Command Center [cite: 13]
+                </button>
+                <button onclick="showPage('registry')" class="nav-link w-full flex items-center p-3 rounded-xl transition hover:bg-slate-800">
+                    <i class="fas fa-box mr-3"></i> Vehicle Registry [cite: 21]
+                </button>
+                <button onclick="showPage('dispatcher')" class="nav-link w-full flex items-center p-3 rounded-xl transition hover:bg-slate-800">
+                    <i class="fas fa-map-location-dot mr-3"></i> Trip Dispatcher [cite: 25]
+                </button>
+                <button onclick="showPage('analytics')" class="nav-link w-full flex items-center p-3 rounded-xl transition hover:bg-slate-800">
+                    <i class="fas fa-chart-pie mr-3"></i> Analytics [cite: 42]
+                </button>
+            </nav>
+
+            <div class="p-6 border-t border-slate-800">
+                <div class="flex items-center space-x-3 p-3 bg-slate-800/50 rounded-2xl">
+                    <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">R</div>
+                    <div>
+                        <p class="text-sm font-semibold text-white">Rashmi</p>
+                        <p class="text-xs text-slate-500">Fleet Manager [cite: 5]</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <header class="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-8">
+                <h2 id="page-title" class="text-2xl font-bold text-slate-800">Command Center</h2>
+                <div class="flex items-center space-x-4">
+                    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold uppercase tracking-wider">System Live</span>
+                </div>
+            </header>
+
+            <div id="content" class="p-8 overflow-y-auto">
+                </div>
+        </main>
+    </div>
+
+    <script src="frontend.js"></script>
+</body>
+</html>
